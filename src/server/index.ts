@@ -14,10 +14,16 @@ export const appRouter = router({
     .query(({ input }) => {
       // This is what you're returning to your client
       return {
-        text: `hello ${input?.name ?? "world"}`,
+        text: `hello, ${input?.name ?? "world"}!`,
         // 💡 Tip: Try adding a new property here and see it propagate to the client straight-away
       };
     }),
+  getTodo: publicProcedure
+    .input(z.object({ todo: z.string() }))
+    .query(({ input }) => {
+      return { text: `Todo: ${input.todo}` };
+    }),
+
   // 💡 Tip: Try adding a new procedure here and see if you can use it in the client!
   // getUser: publicProcedure.query(() => {
   //   return { id: '1', name: 'bob' };

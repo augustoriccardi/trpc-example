@@ -2,9 +2,9 @@
 
 import { trpc } from "../_trpc/client";
 
-export default function TodoList() {
-  const { data, isPending, isError, error } = trpc.getTodo.useQuery({
-    todo: "Sacar la basura!",
+export default function Greeting() {
+  const { data, isPending, isError, error } = trpc.greeting.useQuery({
+    name: "Augusto Riccardi",
   });
 
   if (isPending) {
